@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+h1, .period {
+    margin-bottom: 30px;
+}
+
+.period-info {
+    font-size: large;
+    font-weight: bold;
+}
+
+.sub-info {
+    font-weight: bold;
+}
+
+ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+
+button.hidden {
+    background-color: rgb(80, 80, 80);
+    color: white;
+}
+
+button.visible {
+    background-color: white;
+}

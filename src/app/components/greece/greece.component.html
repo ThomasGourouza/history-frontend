@@ -1,0 +1,46 @@
+<h1>Grèce antique</h1>
+<ul *ngIf="periods.length > 0">
+    <li *ngFor="let period of periods" class="period">
+        <div><button [ngClass]="{'hidden': period.hidden, 'visible': !period.hidden}" class="period-info" (click)="period.hidden = !period.hidden">{{ period.name }}</button></div>
+        <div *ngIf="!period.hidden">
+            <div><span class="period-info">Dates:</span> {{ period.dates | datum }}</div>
+            <div><span class="period-info">Description:</span> {{ period.description }}</div>
+            <div *ngIf="period.events.length > 0">
+                <span class="period-info">Évènements:</span>
+                <ul>
+                    <li *ngFor="let event of period.events">
+                        <div><button [ngClass]="{'hidden': event.hidden, 'visible': !event.hidden}" class="sub-info" (click)="event.hidden = !event.hidden">{{ event.name }}</button></div>
+                        <div *ngIf="!event.hidden">
+                            <div><span class="sub-info">Dates:</span> {{ event.date | datum }}</div>
+                            <div><span class="sub-info">Description:</span> {{ event.description }}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="period.people.length > 0">
+                <span class="period-info">Personnalités:</span>
+                <ul>
+                    <li *ngFor="let personality of period.people">
+                        <div><button [ngClass]="{'hidden': personality.hidden, 'visible': !personality.hidden}" class="sub-info" (click)="personality.hidden = !personality.hidden">{{ personality.name }}</button></div>
+                        <div *ngIf="!personality.hidden">
+                            <div><span class="sub-info">Dates:</span> {{ personality.dates | datum }}
+                            </div>
+                            <div><span class="sub-info">Description:</span> {{ personality.description }}</div>
+                            <div *ngIf="personality.works.length > 0">
+                                <span class="sub-info">Travaux:</span>
+                                <ul>
+                                    <li *ngFor="let work of personality.works">
+                                        <div><button [ngClass]="{'hidden': work.hidden, 'visible': !work.hidden}" class="sub-info" (click)="work.hidden = !work.hidden">{{ work.name }}</button></div>
+                                        <div *ngIf="!work.hidden">
+                                            <div><span class="sub-info">Description:</span> {{ work.description }}</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>
